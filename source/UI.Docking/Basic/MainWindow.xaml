@@ -1,0 +1,72 @@
+﻿<zm:AppWindow
+  x:Class="DockingBasic.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:zm="http://schemas.zaaml.com/xaml"
+  Title="Basic Docking Example"
+  Width="1200"
+  Height="800"
+  WindowStartupLocation="CenterScreen"
+  mc:Ignorable="d">
+
+  <!--  DockControl  -->
+  <zm:DockControl>
+    <zm:DockControl.Layout>
+
+      <!--  Dock Layout  -->
+      <zm:DockControlLayout>
+
+        <!--  TabGroup (SolutionExplorer, Properties)  -->
+        <zm:TabDockItemGroupLayout
+          zm:DockLayout.DockSide="Left"
+          zm:DockLayout.DockWidth="400"
+          DockState="Dock">
+
+          <zm:DockItemLayout ItemName="SolutionExplorer" />
+          <zm:DockItemLayout ItemName="Properties" />
+
+        </zm:TabDockItemGroupLayout>
+
+        <!--  SplitGroup (Output, ErrorList)  -->
+        <zm:SplitDockItemGroupLayout
+          zm:DockLayout.DockHeight="200"
+          zm:DockLayout.DockSide="Bottom"
+          DockState="Dock"
+          Orientation="Horizontal">
+          <zm:DockItemLayout ItemName="Output" />
+          <zm:DockItemLayout ItemName="ErrorList" />
+        </zm:SplitDockItemGroupLayout>
+
+        <zm:DockItemLayout
+          zm:AutoHideLayout.AutoHideHeight="400"
+          zm:AutoHideLayout.AutoHideWidth="400"
+          zm:AutoHideLayout.DockSide="Right"
+          DockState="AutoHide"
+          ItemName="Toolbox" />
+
+        <zm:DocumentDockItemLayout DockState="Document" ItemName="Document1" />
+        <zm:DocumentDockItemLayout DockState="Document" ItemName="Document2" />
+        <zm:DocumentDockItemLayout DockState="Document" ItemName="Document3" />
+        <zm:DocumentDockItemLayout DockState="Document" ItemName="Document4" />
+
+      </zm:DockControlLayout>
+    </zm:DockControl.Layout>
+
+    <!--  Document items  -->
+    <zm:DocumentDockItem x:Name="Document1" Title="Document1" />
+    <zm:DocumentDockItem x:Name="Document2" Title="Document2" />
+    <zm:DocumentDockItem x:Name="Document3" Title="Document3" />
+    <zm:DocumentDockItem x:Name="Document4" Title="Document4" />
+
+    <!--  Tool items  -->
+    <zm:DockItem x:Name="SolutionExplorer" Title="Solution Explorer" />
+    <zm:DockItem x:Name="Properties" Title="Properties" />
+    <zm:DockItem x:Name="Output" Title="Output" />
+    <zm:DockItem x:Name="ErrorList" Title="Error List" />
+    <zm:DockItem x:Name="Toolbox" Title="Toolbox" />
+
+  </zm:DockControl>
+
+</zm:AppWindow>
